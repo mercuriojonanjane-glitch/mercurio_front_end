@@ -8,7 +8,7 @@ React and TypeScript product manager. All product and authentication requests go
 2. Install dependencies with `npm install`.
 3. Start the app with `npm run dev`.
 
-The default API base is `http://localhost/Lab_6/Lava_Back_End/public`. Change it if your Laragon virtual host, port, or public path differs. In the Render Docker image, `public/` is the document root, so use the deployed API root URL without `/public`. Set the backend `FRONTEND_ORIGIN` to the exact frontend origin.
+The default API base is `http://localhost/Lab_6/Lava_Back_End/public`. `VITE_API_BASE_URL` accepts either the API origin or an origin ending in `/api`; the client normalizes both forms. In the Render Docker image, `public/` is the document root, so use the deployed API root URL. The backend health response is available at `/api` and `/api/health`. Set the backend `FRONTEND_ORIGIN` to the exact frontend origin.
 
 ## Production deployment
 

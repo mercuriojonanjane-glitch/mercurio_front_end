@@ -2,7 +2,8 @@ export type Product = { id: number; product_name: string; description: string; p
 export type TokenPair = { access_token: string; refresh_token: string; expires_in: number; token_type: string }
 export type Session = { user: { id: number; username: string; email: string; role: 'admin' | 'user' | 'moderator' }; tokens: TokenPair }
 type ApiPayload<T> = T & { error?: string; message?: string }
-const baseUrl = (import.meta.env.VITE_API_BASE_URL || 'http://localhost/Lab_6/Lava_Back_End/public').replace(/\/+$/, '')
+const configuredBaseUrl = (import.meta.env.VITE_API_BASE_URL || 'http://localhost/Lab_6/Lava_Back_End/public').replace(/\/+$/, '')
+const baseUrl = configuredBaseUrl.replace(/\/api$/i, '')
 
 async function readResponse<T>(response: Response): Promise<ApiPayload<T>> {
   let payload: ApiPayload<T>
